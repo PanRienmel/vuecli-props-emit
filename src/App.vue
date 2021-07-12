@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Search @ricerca="functionSearch"/>
+    <Content :msg="messaggio"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Content from './components/Content.vue'
+import Search from './components/Search.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Content,
+    Search
+  },
+  data(){
+    return{
+      messaggio: ""
+    }
+  },
+  methods:{
+    functionSearch(textSearch){
+      this.messaggio = textSearch;
+    }
   }
 }
 </script>
